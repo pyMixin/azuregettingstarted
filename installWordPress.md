@@ -1,33 +1,36 @@
 # Install Apache, MySQL and PHP on Azure Virtual Machine
 
-  sudo apt update && sudo apt install lamp-server^
+## Install LAMP
 
-# Verify Apache 
+    sudo apt update && sudo apt install lamp-server^
 
-  apache2 -v
+## Verify Apache 
 
-# Verify PHP
-
-  php -v
+    apache2 -v
   
-# Install WordPress
 
-  sudo apt install wordpress
+## Verify PHP
 
-# Configure the configuration file
-
-  sudo vi /etc/wordpress/config-localhost.php
-  <?php
-  define('DB_NAME', 'wordpress');
-  define('DB_USER', 'wordpress');
-  define('DB_PASSWORD', 'yourPassword');
-  define('DB_HOST', 'localhost');
-  define('WP_CONTENT_DIR', '/usr/share/wordpress/wp-content');
-  ?>
+    php -v
   
-# Move the WordPress installation to the web server document root
+## Install WordPress
 
-  sudo ln -s /usr/share/wordpress /var/www/html/wordpress
-  sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
+    sudo apt install wordpress
+
+## Configure the configuration file
+
+    sudo vi /etc/wordpress/config-localhost.php
+    <?php
+    define('DB_NAME', 'wordpress');
+    define('DB_USER', 'wordpress');
+    define('DB_PASSWORD', 'yourPassword');
+    define('DB_HOST', 'localhost');
+    define('WP_CONTENT_DIR', '/usr/share/wordpress/wp-content');
+    ?>
+  
+## Move the WordPress installation to the web server document root
+
+    sudo ln -s /usr/share/wordpress /var/www/html/wordpress
+    sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
 
 Now you can complete the WordPress setup and publish on the platform. Open a browser and go to http://<YOUR_IP>/wordpress
